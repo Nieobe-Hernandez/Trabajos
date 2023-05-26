@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>   
+<head>
+    <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title>Trabajo 7 </title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+ <body>
+
+   nombre del usuario: <h2 id="usuario"></h2> <br>
+
+    nombre: <h1 id="mensaje"></h1>
+    Apellidos:<h2 id="apellido"></h2>
+    Correo<a id="correo" href="mailto:correo"> enviar un correo a : </a> <br>
+    Telefono<a id="tel" href="tel:tel">Llamar a :</a><br>
+    <p id="edad_reg"></p><br>
+    <script>
+      
+      getParameter = (key) => {
+          address = window.location.search;
+          ParameterList = new URLSearchParams(address);
+          return ParameterList.get(key);
+      }
+      console.log(getParameter("nombre"));
+      var nombre=getParameter("nombre");
+      if (nombre != null) {
+          document.getElementById("mensaje").innerHTML = nombre;
+      } 
+
+      getParameter = (key) =>{
+         address = window.location.search;
+          ParameterList = new URLSearchParams(address);
+          return ParameterList.get(key);
+      }
+      console.log(getParameter("apellido"));
+      var apellido=getParameter("apellido");
+      if(apellido !=null){
+         document.getElementById("apellido").innerHTML=apellido;
+      }
+
+      getParameter = (key) =>{
+         address = window.location.search;
+          ParameterList = new URLSearchParams(address);
+          return ParameterList.get(key);
+      }
+      console.log(getParameter("correo"));
+      var correo=getParameter("correo");
+      if(correo != null){
+         document.getElementById("correo").href="mailto:"+correo;
+      }
+
+      getParameter = (key) =>{
+         address = window.location.search;
+          ParameterList = new URLSearchParams(address);
+          return ParameterList.get(key);
+      }
+      console.log(getParameter("tel"));
+      var tel=getParameter("tel");
+      if(tel != null){
+         document.getElementById("tel").href="tel:"+tel;
+      }
+
+      var FechaDeNacimiento = getParameter("FechaDeNacimiento");
+      if (FechaDeNacimiento != null){
+                var fechaNacimiento = FechaDeNacimiento;
+                var fechaActual = new Date();
+                var fechaNac = new Date(fechaNacimiento);
+
+                var edad = fechaActual.getFullYear() - fechaNac.getFullYear();
+                    
+                // Verificar si aún no ha pasado el cumpleaños de este año
+                if (fechaActual.getMonth() < fechaNac.getMonth() || (fechaActual.getMonth() === fechaNac.getMonth() && fechaActual.getDate() < fechaNac.getDate())) {
+                    edad--;
+                }
+                if (edad <= 99){
+                document.getElementById("edad_reg").innerHTML = "Tu edad actual es: " + edad;
+                }else{
+                    alert("Estas seguro de tu edad? \n Probablemente hubo un erro con el año de tu nacimiento");
+                }
+            }
+            
+ getParameter = (key) =>{
+         address = window.location.search;
+          ParameterList = new URLSearchParams(address);
+          return ParameterList.get(key);
+      }
+      console.log(getParameter("usuario"));
+      var usuario=getParameter("usuario");
+      if(usuario !=null){
+         document.getElementById("usuario").innerHTML=usuario;
+      }
+
+      
+      var password = getParameter ("contra");
+      if(password != null){
+         if(password.length < 5){
+             alert("¡Advertencia contraseña insegura!");
+         }
+      }
+      var passwordR = getParameter ("contra1");
+      if(passwordR != null){
+         if(passwordR.length < 5){
+             alert("¡Advertencia contraseña insegura!");
+         }
+      }
+
+  </script>
+ </body>
+</html>
