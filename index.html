@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trabajo 7 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body background="">
+    <center>
+        <h1 id="mensaje">Formulario de Registro Personal</h1>
+    </center>
+    <center>
+        <div>
+            <form action="enlace.html" method="get">
+
+                <label> Nombres : </label><input type="text" name="nombre"> <br>
+                <label> Apellidos : </label><input type="text" name="apellido"> <br>
+                <label> Correo : </label><input type="email" name="correo"> <br>
+                <label> Fecha de Nacimiento: </label><input type="date" name="FechaDeNacimiento"> <br>
+                <label> Telefono : </label><input type="text" name="tel"> <br>
+                <label> Usuario : </label><input type="text" name="usuario"> <br>
+                <label> Contraseña : </label><input type="password" name="contra"> <br>
+                <label> Repetir contraseña: </label><input type="password" name="contra1"> <br>
+                <input type="submit" value="Subir Respuestas">
+            </form>
+            
+            
+        </div>
+    </center>
+    <script>
+        getParameter = (key) =>{
+         address = window.location.search;
+          ParameterList = new URLSearchParams(address);
+          return ParameterList.get(key);
+      }
+        var FechaDeNacimiento = getParameter(FechaDeNacimiento);
+    </script>
+</body>
+
+</html>
